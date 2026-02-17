@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscar Caux | Creative Technologist</title>
+    <meta name="description"
+        content="Portfolio of Oscar Caux - Engineering hardware and software for the next era of vision.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#0a0a0a',
+                        surface: '#121212',
+                        text: '#f5f5f5',
+                        accent: '#60a5fa', // Blue-400
+                        'accent-dim': 'rgba(96, 165, 250, 0.1)',
+                    },
+                    fontFamily: {
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1a1a1a 1px, transparent 1px), linear-gradient(to bottom, #1a1a1a 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            font-family: "JetBrains Mono", monospace;
+            overflow-x: hidden;
+        }
+
+        /* Technical Grid Background */
+        .bg-tech {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #60a5fa;
+        }
+
+        /* Utilities */
+        .tech-border {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            border-color: #60a5fa;
+            box-shadow: 0 0 15px rgba(96, 165, 250, 0.1);
+        }
+
+        /* Glitch effect utility class */
+        .glitch-hover:hover {
+            animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            color: #60a5fa;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0)
+            }
+
+            20% {
+                transform: translate(-2px, 2px)
+            }
+
+            40% {
+                transform: translate(-2px, -2px)
+            }
+
+            60% {
+                transform: translate(2px, 2px)
+            }
+
+            80% {
+                transform: translate(2px, -2px)
+            }
+
+            100% {
+                transform: translate(0)
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen relative">
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 z-0 pointer-events-none bg-tech"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="text-lg font-bold tracking-tighter">
+                <span class="text-accent">&lt;</span>OscarCaux<span class="text-accent">/&gt;</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm text-gray-400">
+                <a href="#projects" class="hover:text-accent transition-colors">./projects</a>
+                <a href="#cv" class="hover:text-accent transition-colors">./cv</a>
+                <a href="#contact" class="hover:text-accent transition-colors">./contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20">
+
+        <!-- Hero Section -->
+        <section class="mb-32">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-accent mb-6">
+                <div class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></div>
+                OPEN TO WORK
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 tracking-tight">
+                Engineering hardware and<br />
+                software for the <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">next era of
+                    vision</span>.
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl leading-relaxed">
+                Master's student at <span class="text-white">ESILV</span> & Creative Technologist with <span
+                    class="text-white">Institute for Future Technologies</span>.<br>
+                Specializing in Embedded Systems, Computer Vision, and HCI.
+            </p>
+        </section>
+
+        <!-- Projects Section (Bento Grid) -->
+        <section id="projects" class="mb-32">
+            <div class="flex items-end justify-between mb-8 border-b border-white/10 pb-4">
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    <i class="ph ph-squares-four text-accent"></i>
+                    Selected Projects
+                </h2>
+                <span class="text-xs text-gray-500 font-mono">INDEX_01:03</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(300px,auto)]">
+
+                <!-- Project 1: Camera T-1 (Large Card) -->
+                <!-- Project 1: Camera T-1 (Large Card) -->
+                <a href="project-t1.html"
+                    class="md:col-span-2 row-span-2 group relative bg-surface tech-border rounded-xl overflow-hidden card-hover block">
+                    <article class="h-full">
+                        <div class="absolute top-4 left-4 z-20">
+                            <span class="px-2 py-1 bg-accent/10 border border-accent/20 text-accent text-xs rounded">
+                                LEAD PROJECT
+                            </span>
+                        </div>
+                        <div class="absolute top-4 right-4 z-20">
+                            <span class="px-2 py-1 bg-white/5 border border-white/10 text-white text-xs rounded">
+                                CHI 2026 SUBMISSION
+                            </span>
+                        </div>
+
+                        <div
+                            class="h-2/3 bg-[#151515] relative flex items-center justify-center border-b border-white/5 group-hover:bg-[#1a1a1a] transition-colors overflow-hidden">
+                            <img src="assets/montage.jpeg" alt="Camera T-1 Device"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 group-hover:text-accent transition-colors">Camera T-1:
+                                Tangible Geo-Archival Exploration</h3>
+                            <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                                A handheld device designed to bridge individual and collective memory by allowing users
+                                to rediscover historical photographs of their current location in-situ.
+                            </p>
+                            <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-300">
+                                <span class="bg-white/5 px-2 py-1 rounded">Raspberry Pi 4</span>
+                                <span class="bg-white/5 px-2 py-1 rounded">Python</span>
+                                <span class="bg-white/5 px-2 py-1 rounded">Tkinter</span>
+                                <span class="bg-white/5 px-2 py-1 rounded">Database</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <!-- Project 2: Raw2Event -->
+                <!-- Project 2: Raw2Event -->
+                <a href="project-raw2event.html"
+                    class="md:col-span-1 row-span-1 group relative bg-surface tech-border rounded-xl overflow-hidden card-hover block">
+                    <article class="h-full">
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="px-2 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs rounded">
+                                RESEARCH
+                            </span>
+                        </div>
+                        <div
+                            class="h-40 bg-[#151515] relative flex items-center justify-center border-b border-white/5">
+                            <img src="assets/raw2event.png" alt="Raw2Event"
+                                class="w-full h-full object-cover opacity-80">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#151515] to-transparent"></div>
+                            <div class="absolute bottom-2 right-4 text-xs font-mono text-accent">
+                                33 FPS @ RPi5
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-accent transition-colors">Raw2Event</h3>
+                            <p class="text-gray-400 text-xs mb-3">
+                                High-Fidelity Event Camera Simulation from Raw Bayer frames.
+                            </p>
+                            <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-300">
+                                <span class="bg-white/5 px-2 py-1 rounded">NumPy</span>
+                                <span class="bg-white/5 px-2 py-1 rounded">Robotic Arm</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <!-- Project 3: AI & CG Lab -->
+                <!-- Project 3: AI & CG Lab -->
+                <a href="project-lab.html"
+                    class="md:col-span-1 row-span-1 group relative bg-surface tech-border rounded-xl overflow-hidden card-hover block">
+                    <article class="h-full">
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="px-2 py-1 bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs rounded">
+                                LAB
+                            </span>
+                        </div>
+                        <div
+                            class="h-40 bg-[#151515] relative flex items-center justify-center border-b border-white/5 overflow-hidden">
+                            <!-- Code background -->
+                            <img src="assets/scene2.png" alt="Lab Experiments"
+                                class="w-full h-full object-cover opacity-80">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-accent transition-colors">IFT Lab & Open
+                                Source</h3>
+                            <p class="text-gray-400 text-xs mb-3">
+                                TinyGrad-MNIST, WebGPU Ray-Marching, and Browser-Native RAG.
+                            </p>
+                            <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-300">
+                                <span class="bg-white/5 px-2 py-1 rounded">Deep Learning</span>
+                                <span class="bg-white/5 px-2 py-1 rounded">WebGPU</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="mb-32">
+            <h3 class="text-sm font-mono text-gray-500 mb-6 uppercase tracking-wider border-b border-white/10 pb-2">
+                Technical Arsenal</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="p-4 border border-white/5 bg-white/[0.02] rounded hover:border-accent/50 transition-colors">
+                    <h4 class="text-xs text-gray-500 mb-2 font-bold uppercase">Languages</h4>
+                    <p class="text-sm text-gray-300">Python, C#, JavaScript, HTML/CSS</p>
+                </div>
+                <div class="p-4 border border-white/5 bg-white/[0.02] rounded hover:border-accent/50 transition-colors">
+                    <h4 class="text-xs text-gray-500 mb-2 font-bold uppercase">Hardware</h4>
+                    <p class="text-sm text-gray-300">Embedded Systems, PCB (KiCad, Altium), Soldering</p>
+                </div>
+                <div class="p-4 border border-white/5 bg-white/[0.02] rounded hover:border-accent/50 transition-colors">
+                    <h4 class="text-xs text-gray-500 mb-2 font-bold uppercase">Tools</h4>
+                    <p class="text-sm text-gray-300">Solidworks, Fusion360, Rhino, Unity</p>
+                </div>
+                <div class="p-4 border border-white/5 bg-white/[0.02] rounded hover:border-accent/50 transition-colors">
+                    <h4 class="text-xs text-gray-500 mb-2 font-bold uppercase">Design</h4>
+                    <p class="text-sm text-gray-300">Photoshop, Figma</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Contact -->
+        <footer id="contact" class="border-t border-white/10 pt-12 pb-12">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                <div>
+                    <h2 class="text-2xl font-bold mb-2">Let's build something.</h2>
+                    <p class="text-gray-400 text-sm mb-4">Open for 4-5 month internship starting April 2026.</p>
+                    <div class="text-xs text-gray-500 font-mono">
+                        <i class="ph ph-map-pin mr-1"></i> Paris - La Défense
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto">
+                    <a href="assets/VF Version CV Oscar CAUX.pdf" target="_blank"
+                        class="px-6 py-3 bg-white text-black font-bold rounded hover:bg-accent hover:text-black transition-colors text-center">
+                        Download CV
+                    </a>
+                    <div class="flex gap-4 items-center justify-center md:justify-start">
+                        <a href="https://github.com/Oscarinho7" target="_blank"
+                            class="text-2xl text-gray-400 hover:text-white transition-colors">
+                            <i class="ph ph-github-logo"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/oscar-caux-b50944290/" target="_blank"
+                            class="text-2xl text-gray-400 hover:text-white transition-colors">
+                            <i class="ph ph-linkedin-logo"></i>
+                        </a>
+                        <a href="mailto:oscarcaux7@gmail.com"
+                            class="text-sm text-gray-400 hover:text-white transition-colors font-mono">
+                            oscarcaux7@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 text-xs text-gray-600 font-mono text-center md:text-left">
+                © 2026 Oscar Caux. System Status: ONLINE.
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

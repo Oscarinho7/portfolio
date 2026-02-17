@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFT Lab | Oscar Caux</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#0a0a0a',
+                        surface: '#121212',
+                        text: '#f5f5f5',
+                        accent: '#60a5fa',
+                        'accent-dim': 'rgba(96, 165, 250, 0.1)',
+                    },
+                    fontFamily: {
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .tech-border {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen p-6 md:p-12 max-w-4xl mx-auto">
+    <nav class="mb-12 flex justify-between items-center text-sm text-gray-400">
+        <a href="index.html" class="hover:text-accent flex items-center gap-2">
+            <i class="ph ph-arrow-left"></i> BACK_TO_INDEX
+        </a>
+        <span class="font-mono">PROJECT_03</span>
+    </nav>
+
+    <header class="mb-12 border-b border-white/10 pb-8">
+        <div
+            class="inline-block px-2 py-1 bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs rounded mb-4">
+            LAB</div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">IFT Lab & Open Source</h1>
+        <p class="text-xl text-gray-400">Experimental implementations in Deep Learning and Graphics.</p>
+    </header>
+
+    <main class="grid md:grid-cols-3 gap-12">
+        <div class="md:col-span-2 space-y-16">
+            <!-- Project 1: MNIST -->
+            <div class="space-y-4">
+                <div class="aspect-video bg-[#151515] tech-border rounded-xl overflow-hidden">
+                    <img src="assets/mnist_img.png" alt="TinyGrad MNIST" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-white">TinyGrad-MNIST Classifier</h3>
+                        <a href="https://oscarinho7.github.io/TinyGrad-MNIST-Classifier/" target="_blank"
+                            class="text-xs border border-accent/50 text-accent px-2 py-1 rounded hover:bg-accent/10 transition-colors">
+                            LIVE DEMO ↗
+                        </a>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        An end-to-end Deep Learning pipeline using the TinyGrad framework, deployed in-browser via
+                        WebGPU for real-time inference.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project 2: RAG -->
+            <div class="space-y-4">
+                <div class="aspect-video bg-[#151515] tech-border rounded-xl overflow-hidden">
+                    <img src="assets/Synapse.png" alt="RAG Engine" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-white">Browser-Native RAG Engine</h3>
+                        <a href="https://oscarinho7.github.io/Browser-Native-Multi-Document-RAG-Engine-for-Systematic-Review/"
+                            target="_blank"
+                            class="text-xs border border-accent/50 text-accent px-2 py-1 rounded hover:bg-accent/10 transition-colors">
+                            LIVE DEMO ↗
+                        </a>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        A privacy-first, client-side Retrieval-Augmented Generation system for local semantic search
+                        over documents.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project 3: Raymarching -->
+            <div class="space-y-4">
+                <div class="aspect-video bg-[#151515] tech-border rounded-xl overflow-hidden">
+                    <img src="assets/scene2.png" alt="Raymarching Editor" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-white">WebGPU Ray-Marching Editor</h3>
+                        <a href="https://oscarinho7.github.io/WebGPU-Project-Interactive-Ray-Marching-Scene-Editor/"
+                            target="_blank"
+                            class="text-xs border border-accent/50 text-accent px-2 py-1 rounded hover:bg-accent/10 transition-colors">
+                            LIVE DEMO ↗
+                        </a>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        An interactive 3D scene editor utilizing SDF (Signed Distance Fields) and real-time lighting.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <aside class="space-y-8">
+            <div class="p-6 bg-surface tech-border rounded-xl">
+                <h3 class="text-sm font-bold text-gray-500 mb-4 uppercase">Technologies</h3>
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-300">
+                    <span class="bg-white/5 px-2 py-1 rounded">TinyGrad</span>
+                    <span class="bg-white/5 px-2 py-1 rounded">WebGPU</span>
+                    <span class="bg-white/5 px-2 py-1 rounded">RAG</span>
+                    <span class="bg-white/5 px-2 py-1 rounded">HTML/CSS</span>
+                </div>
+            </div>
+        </aside>
+    </main>
+</body>
+
+</html>

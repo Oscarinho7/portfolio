@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raw2Event | Oscar Caux</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#0a0a0a',
+                        surface: '#121212',
+                        text: '#f5f5f5',
+                        accent: '#60a5fa',
+                        'accent-dim': 'rgba(96, 165, 250, 0.1)',
+                    },
+                    fontFamily: {
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .tech-border {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen p-6 md:p-12 max-w-4xl mx-auto">
+    <nav class="mb-12 flex justify-between items-center text-sm text-gray-400">
+        <a href="index.html" class="hover:text-accent flex items-center gap-2">
+            <i class="ph ph-arrow-left"></i> BACK_TO_INDEX
+        </a>
+        <span class="font-mono">PROJECT_02</span>
+    </nav>
+
+    <header class="mb-12 border-b border-white/10 pb-8">
+        <div class="inline-block px-2 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs rounded mb-4">
+            RESEARCH</div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Raw2Event: High-Fidelity Event Camera Simulation</h1>
+        <p class="text-xl text-gray-400">Real-Time Event Generation from Raw Frames.</p>
+    </header>
+
+    <main class="grid md:grid-cols-3 gap-12">
+        <div class="md:col-span-2 space-y-8">
+            <div class="aspect-video bg-[#151515] tech-border rounded-xl overflow-hidden">
+                <img src="assets/raw2event.png" alt="Raw2Event Heatmap Comparison" class="w-full h-full object-cover">
+            </div>
+
+            <section class="prose prose-invert max-w-none space-y-8">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-4">Raw2Event</h3>
+                    <p class="text-gray-400 leading-relaxed text-lg">
+                        Raw2Event is a hardware-software system that converts standard camera frames into neuromorphic
+                        event streams in real-time.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">The Core: ISP Bypass</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Unlike typical simulators, it bypasses the Image Signal Processor (ISP) to access 10-bit raw
+                        Bayer data. This preserves the full potential of the sensor, providing Higher Dynamic Range
+                        (HDR) and more faithful intensity values than processed RGB streams.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Technical Highlights</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-400">
+                        <li><strong class="text-white">Embedded Performance:</strong> Re-implemented using NumPy-based
+                            vectorized operations, achieving 33 FPS on Raspberry Pi 5.</li>
+                        <li><strong class="text-white">Autofocus Support:</strong> Leverages conventional sensor
+                            features (like PDAF) to provide sharp event boundaries, a feature missing in most commercial
+                            event cameras.</li>
+                        <li><strong class="text-white">Physics-Based Model:</strong> Built on the DVS-Voltmeter model,
+                            using Inverse Gaussian distribution to simulate realistic temporal jitter and noise.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Validation Pipeline</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        The system was calibrated using a robotic arm to capture perfectly synchronized data between a
+                        Raspberry Pi Camera and a professional DAVIS346 event sensor.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">User Control</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        It offers six tunable physical parameters (<i>k<sub>1</sub></i> to <i>k<sub>6</sub></i>) to
+                        control contrast sensitivity, dark noise, and pixel leakage, allowing users to emulate specific
+                        hardware behaviors or lighting conditions.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <aside class="space-y-8">
+            <div class="p-6 bg-surface tech-border rounded-xl">
+                <h3 class="text-sm font-bold text-gray-500 mb-4 uppercase">Technical Overview</h3>
+                <ul class="space-y-3 text-sm text-gray-300">
+                    <li class="flex justify-between items-start gap-4 border-b border-white/5 pb-2">
+                        <span class="shrink-0 text-gray-500">System</span>
+                        <span class="text-right">Raspberry Pi 5</span>
+                    </li>
+                    <li class="flex justify-between items-start gap-4 border-b border-white/5 pb-2">
+                        <span class="shrink-0 text-gray-500">Input</span>
+                        <span class="text-right">RPi Camera Module 3</span>
+                    </li>
+                    <li class="flex justify-between items-start gap-4 border-b border-white/5 pb-2">
+                        <span class="shrink-0 text-gray-500">Output</span>
+                        <span class="text-right text-accent">33 FPS Event Stream</span>
+                    </li>
+                    <li class="flex justify-between items-start gap-4 border-b border-white/5 pb-2">
+                        <span class="shrink-0 text-gray-500">Core</span>
+                        <span class="text-right">ISP Bypass / NumPy</span>
+                    </li>
+                    <li class="flex justify-between items-start gap-4 pb-2">
+                        <span class="shrink-0 text-gray-500">Validation</span>
+                        <span class="text-right">Dobot Arm + DAVIS346</span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+</body>
+
+</html>
